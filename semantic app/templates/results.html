@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Search Results</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <ul>
+            {% for result in results %}
+                <li>
+                    <p>ID: {{ result.id }}</p>
+                    <p>Distance: {{ result.distance }}</p>
+                    <p>Document: {{ result.document }}</p>
+                    <p>Metadata: {{ result.metadata }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
